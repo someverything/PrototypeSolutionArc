@@ -1,4 +1,5 @@
 using Business.DependencyInjection;
+using Presentation.Middlewears;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAuthorization();
 builder.Services.AddControllers();
+
+builder.Services.AddLogging();
 
 var app = builder.Build();
 
@@ -22,6 +25,10 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+//Middlewares registration
+app.UseMiddleware<LocalizationMiddleware>();
+app.UseMiddleware<GlobalExeptionHandlingMiddleware>();
 
 app.MapControllers();
 

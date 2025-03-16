@@ -5,11 +5,11 @@ using Microsoft.Data.SqlClient;
 
 namespace Presentation.Middlewears;
 
-public class GlobalHandlingExeptionsMiddlewear : IMiddleware
+public class GlobalExeptionHandlingMiddleware : IMiddleware
 {
-    private readonly ILogger<GlobalHandlingExeptionsMiddlewear> _logger;
+    private readonly ILogger<GlobalExeptionHandlingMiddleware> _logger;
 
-    public GlobalHandlingExeptionsMiddlewear(ILogger<GlobalHandlingExeptionsMiddlewear> logger)
+    public GlobalExeptionHandlingMiddleware(ILogger<GlobalExeptionHandlingMiddleware> logger)
     {
         _logger = logger;
     }
